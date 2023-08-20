@@ -5,7 +5,7 @@
 //  Created by Kobe, kyungmin on 2023/08/20.
 //
 
-typealias GameInfomation = (GameTurn, GameStatus)
+typealias GameInfomation = (gameTurn: GameTurn, gameStatus: GameStatus)
 
 struct GameManager {
     private var gameTurn: GameTurn

@@ -13,6 +13,9 @@
 		BA0432B32A91E5850084D6B7 /* MukJjiBbaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432B22A91E5850084D6B7 /* MukJjiBbaManager.swift */; };
 		BA0432B52A91E6D50084D6B7 /* GameTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432B42A91E6D50084D6B7 /* GameTurn.swift */; };
 		BA0432B72A91E7A90084D6B7 /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432B62A91E7A90084D6B7 /* GameStatus.swift */; };
+		CDD6CC5F2A91EFCE00036F15 /* HandShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6CC5E2A91EFCE00036F15 /* HandShape.swift */; };
+		CDD6CC612A91F84900036F15 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6CC602A91F84900036F15 /* GameResult.swift */; };
+		CDD6CC632A91F9DE00036F15 /* GameError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD6CC622A91F9DE00036F15 /* GameError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +38,9 @@
 		BA0432B22A91E5850084D6B7 /* MukJjiBbaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MukJjiBbaManager.swift; sourceTree = "<group>"; };
 		BA0432B42A91E6D50084D6B7 /* GameTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTurn.swift; sourceTree = "<group>"; };
 		BA0432B62A91E7A90084D6B7 /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
+		CDD6CC5E2A91EFCE00036F15 /* HandShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandShape.swift; sourceTree = "<group>"; };
+		CDD6CC602A91F84900036F15 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		CDD6CC622A91F9DE00036F15 /* GameError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,9 @@
 				BA0432B22A91E5850084D6B7 /* MukJjiBbaManager.swift */,
 				BA0432B42A91E6D50084D6B7 /* GameTurn.swift */,
 				BA0432B62A91E7A90084D6B7 /* GameStatus.swift */,
+				CDD6CC5E2A91EFCE00036F15 /* HandShape.swift */,
+				CDD6CC602A91F84900036F15 /* GameResult.swift */,
+				CDD6CC622A91F9DE00036F15 /* GameError.swift */,
 			);
 			path = "ios-refactoring-rock-paper-scissors";
 			sourceTree = "<group>";
@@ -136,9 +145,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDD6CC632A91F9DE00036F15 /* GameError.swift in Sources */,
 				BA0432AD2A91E0840084D6B7 /* main.swift in Sources */,
+				CDD6CC5F2A91EFCE00036F15 /* HandShape.swift in Sources */,
 				BA0432B72A91E7A90084D6B7 /* GameStatus.swift in Sources */,
 				BA0432B12A91E5730084D6B7 /* RockScissorsPaperManger.swift in Sources */,
+				CDD6CC612A91F84900036F15 /* GameResult.swift in Sources */,
 				BA0432AF2A91E0EC0084D6B7 /* GameManager.swift in Sources */,
 				BA0432B52A91E6D50084D6B7 /* GameTurn.swift in Sources */,
 				BA0432B32A91E5850084D6B7 /* MukJjiBbaManager.swift in Sources */,
