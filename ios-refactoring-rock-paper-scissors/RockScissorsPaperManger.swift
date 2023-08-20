@@ -9,23 +9,39 @@ typealias HandShapeInformation = (handShape: HandShape, gameStatus: GameStatus)
 
 enum RockScissorsPaperManger {
     static func playRockScissorsPaper() -> GameInfomation {
-        var gameResult = GameStatus.execute
+        var gameResult: GameInfomation = (.unknown, .execute)
         
-        while gameResult == .execute {
+        while gameResult == (.unknown, .execute) {
             let handSahpeInformation = inputValidUserValue()
             
             switch handSahpeInformation.gameStatus {
             case .execute:
                 let computerHandShape = randomComputerHandShape()
-                // 컴퓨터 랜덤 핸드쉐이프 받아서 사용자 핸드쉐이프랑 비교해준뒤 비겼는지 이겼는지 졌는지 로직이 들어감
-                return (.unknown, .exit)
+
+                do {
+                    let result = try compareHandShape(user: handSahpeInformation.handShape, computer: computerHandShape)
+                    
+                    switch result {
+                    case .win:
+                        gameResult = (.user, .execute)
+                    case .lose:
+                        gameResult = (.computer, .execute)
+                    case .draw:
+                        gameResult = (.unknown, .execute)
+                    case .unowned:
+                        gameResult = (.unknown, .exit)
+                    }
+                } catch {
+                    print(GameError.invalid)
+                }
+                
             case .exit:
-                return (.unknown, .exit)
+                gameResult = (.unknown, .exit)
             }
             
         }
         
-        return (.unknown, .exit)
+        return gameResult
     }
     
     private static func compareHandShape(user: HandShape, computer: HandShape) throws -> GameResult {
