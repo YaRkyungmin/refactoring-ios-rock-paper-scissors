@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BA04329C2A91D8D20084D6B7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA04329B2A91D8D20084D6B7 /* main.swift */; };
+		BA0432AD2A91E0840084D6B7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432AC2A91E0840084D6B7 /* main.swift */; };
+		BA0432AF2A91E0EC0084D6B7 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432AE2A91E0EC0084D6B7 /* GameManager.swift */; };
+		BA0432B12A91E5730084D6B7 /* RockScissorsPaperManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432B02A91E5730084D6B7 /* RockScissorsPaperManger.swift */; };
+		BA0432B32A91E5850084D6B7 /* MukJjiBbaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432B22A91E5850084D6B7 /* MukJjiBbaManager.swift */; };
+		BA0432B52A91E6D50084D6B7 /* GameTurn.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432B42A91E6D50084D6B7 /* GameTurn.swift */; };
+		BA0432B72A91E7A90084D6B7 /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0432B62A91E7A90084D6B7 /* GameStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +29,12 @@
 
 /* Begin PBXFileReference section */
 		BA0432982A91D8D20084D6B7 /* ios-refactoring-rock-paper-scissors */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ios-refactoring-rock-paper-scissors"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA04329B2A91D8D20084D6B7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BA0432AC2A91E0840084D6B7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		BA0432AE2A91E0EC0084D6B7 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		BA0432B02A91E5730084D6B7 /* RockScissorsPaperManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockScissorsPaperManger.swift; sourceTree = "<group>"; };
+		BA0432B22A91E5850084D6B7 /* MukJjiBbaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MukJjiBbaManager.swift; sourceTree = "<group>"; };
+		BA0432B42A91E6D50084D6B7 /* GameTurn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTurn.swift; sourceTree = "<group>"; };
+		BA0432B62A91E7A90084D6B7 /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +67,12 @@
 		BA04329A2A91D8D20084D6B7 /* ios-refactoring-rock-paper-scissors */ = {
 			isa = PBXGroup;
 			children = (
-				BA04329B2A91D8D20084D6B7 /* main.swift */,
+				BA0432AC2A91E0840084D6B7 /* main.swift */,
+				BA0432AE2A91E0EC0084D6B7 /* GameManager.swift */,
+				BA0432B02A91E5730084D6B7 /* RockScissorsPaperManger.swift */,
+				BA0432B22A91E5850084D6B7 /* MukJjiBbaManager.swift */,
+				BA0432B42A91E6D50084D6B7 /* GameTurn.swift */,
+				BA0432B62A91E7A90084D6B7 /* GameStatus.swift */,
 			);
 			path = "ios-refactoring-rock-paper-scissors";
 			sourceTree = "<group>";
@@ -94,6 +109,7 @@
 				TargetAttributes = {
 					BA0432972A91D8D20084D6B7 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -120,7 +136,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA04329C2A91D8D20084D6B7 /* main.swift in Sources */,
+				BA0432AD2A91E0840084D6B7 /* main.swift in Sources */,
+				BA0432B72A91E7A90084D6B7 /* GameStatus.swift in Sources */,
+				BA0432B12A91E5730084D6B7 /* RockScissorsPaperManger.swift in Sources */,
+				BA0432AF2A91E0EC0084D6B7 /* GameManager.swift in Sources */,
+				BA0432B52A91E6D50084D6B7 /* GameTurn.swift in Sources */,
+				BA0432B32A91E5850084D6B7 /* MukJjiBbaManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,8 +264,11 @@
 		BA0432A02A91D8D20084D6B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios-refactoring-rock-paper-scissors/ios-refactoring-rock-paper-scissors-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -252,8 +276,10 @@
 		BA0432A12A91D8D20084D6B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ios-refactoring-rock-paper-scissors/ios-refactoring-rock-paper-scissors-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
