@@ -7,8 +7,8 @@
 
 typealias HandShapeInformation = (handShape: HandShape, gameStatus: GameStatus)
 
-enum RockScissorsPaperManger {
-    static func playRockScissorsPaper() -> GameInfomation {
+struct RockScissorsPaperManger {
+    func playRockScissorsPaper() -> GameInfomation {
         var gameResult: GameInfomation = (.unknown, .execute)
         
         while gameResult == (.unknown, .execute) {
@@ -26,7 +26,7 @@ enum RockScissorsPaperManger {
         return gameResult
     }
     
-    private static func gameInfomation(userHandShape: HandShape, computerHandShape: HandShape) -> GameInfomation {
+    private func gameInfomation(userHandShape: HandShape, computerHandShape: HandShape) -> GameInfomation {
         do {
             let result = try compareHandShape(user: userHandShape, computer: computerHandShape)
             
@@ -42,11 +42,12 @@ enum RockScissorsPaperManger {
             }
         } catch {
             print(GameError.invalid)
+            
             return (.unknown, .exit)
         }
     }
     
-    private static func compareHandShape(user: HandShape, computer: HandShape) throws -> GameResult {
+    private func compareHandShape(user: HandShape, computer: HandShape) throws -> GameResult {
         switch (user, computer) {
         case (.scissors, .scissors), (.rock, .rock), (.paper, .paper):
             return .draw
@@ -59,7 +60,7 @@ enum RockScissorsPaperManger {
         }
     }
     
-    private static func randomComputerHandShape() -> HandShape {
+    private func randomComputerHandShape() -> HandShape {
         let randomIntValue = Int.random(in: 1...3)
         
         switch randomIntValue {
@@ -74,7 +75,7 @@ enum RockScissorsPaperManger {
         }
     }
     
-    private static func inputValidUserValue() -> HandShapeInformation {
+    private func inputValidUserValue() -> HandShapeInformation {
         let isWrongInputValue = true
         
         while isWrongInputValue {
