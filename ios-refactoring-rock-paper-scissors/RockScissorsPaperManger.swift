@@ -16,32 +16,34 @@ enum RockScissorsPaperManger {
             
             switch handSahpeInformation.gameStatus {
             case .execute:
-                let computerHandShape = randomComputerHandShape()
-
-                do {
-                    let result = try compareHandShape(user: handSahpeInformation.handShape, computer: computerHandShape)
-                    
-                    switch result {
-                    case .win:
-                        gameResult = (.user, .execute)
-                    case .lose:
-                        gameResult = (.computer, .execute)
-                    case .draw:
-                        gameResult = (.unknown, .execute)
-                    case .unowned:
-                        gameResult = (.unknown, .exit)
-                    }
-                } catch {
-                    print(GameError.invalid)
-                }
-                
+                gameResult = gameInfomation(userHandShape: handSahpeInformation.handShape,
+                                            computerHandShape: randomComputerHandShape())
             case .exit:
                 gameResult = (.unknown, .exit)
             }
-            
         }
         
         return gameResult
+    }
+    
+    private static func gameInfomation(userHandShape: HandShape, computerHandShape: HandShape) -> GameInfomation {
+        do {
+            let result = try compareHandShape(user: userHandShape, computer: computerHandShape)
+            
+            switch result {
+            case .win:
+                return (.user, .execute)
+            case .lose:
+                return (.computer, .execute)
+            case .draw:
+                return (.unknown, .execute)
+            case .unowned:
+                return (.unknown, .exit)
+            }
+        } catch {
+            print(GameError.invalid)
+            return (.unknown, .exit)
+        }
     }
     
     private static func compareHandShape(user: HandShape, computer: HandShape) throws -> GameResult {
