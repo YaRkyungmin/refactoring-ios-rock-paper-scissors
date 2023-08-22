@@ -1,1 +1,1 @@
-# iOS-refactoring-rock-paper-scissors
+# refactoring-ios-rock-paper-scissors
