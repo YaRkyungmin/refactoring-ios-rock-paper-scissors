@@ -4,6 +4,6 @@
 //
 //  Created by Kobe, kyungmin on 2023/08/20.
 //
-let a = RockScissorsPaperManger.playRockScissorsPaper()
-print(a)
+let a = RockScissorsPaperManger()
+a.playRockScissorsPaper()
 

@@ -50,10 +50,16 @@ struct RockScissorsPaperManger {
     private func compareHandShape(user: HandShape, computer: HandShape) throws -> GameResult {
         switch (user, computer) {
         case (.scissors, .scissors), (.rock, .rock), (.paper, .paper):
+            print(NameSpace.draw)
+            
             return .draw
         case (.scissors, .rock), (.rock, .paper), (.paper, .scissors):
+            print(NameSpace.lose)
+            
             return .lose
         case (.scissors, .paper), (.rock, .scissors), (.paper, .rock):
+            print(NameSpace.win)
+            
             return .win
         default:
             throw GameError.invalid
@@ -79,11 +85,13 @@ struct RockScissorsPaperManger {
         let isWrongInputValue = true
         
         while isWrongInputValue {
-            print("가위(1), 바위(2), 보(3)! <종료 : 0> :", terminator: " ")
+            print(NameSpace.inputInformationMessage, terminator: NameSpace.whiteSpace)
 
             guard let inputValue = readLine(),
                   let inputValue = Int(inputValue),
                   (0...3).contains(inputValue) else {
+                print(NameSpace.invalidInputMessage)
+                
                 continue
             }
 
@@ -98,5 +106,16 @@ struct RockScissorsPaperManger {
                 return (.unowned, .exit)
             }
         }
+    }
+}
+
+extension RockScissorsPaperManger {
+    private enum NameSpace {
+        static let inputInformationMessage = "가위(1), 바위(2), 보(3)! <종료 : 0> :"
+        static let invalidInputMessage = "잘못된 입력입니다. 다시 시도해주세요."
+        static let draw = "비겼습니다!"
+        static let lose = "졌습니다!"
+        static let win = "이겼습니다!"
+        static let whiteSpace = " "
     }
 }
