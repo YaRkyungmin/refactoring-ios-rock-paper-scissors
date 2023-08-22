@@ -4,6 +4,7 @@
 //
 //  Created by Kobe, kyungmin on 2023/08/20.
 //
-let a = RockScissorsPaperManger()
-a.playRockScissorsPaper()
 
+let gameManager = GameManager()
+
+gameManager.playGame()
