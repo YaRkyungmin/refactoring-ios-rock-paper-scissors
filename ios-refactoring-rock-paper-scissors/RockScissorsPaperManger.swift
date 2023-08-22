@@ -8,15 +8,15 @@
 typealias HandShapeInformation = (handShape: HandShape, gameStatus: GameStatus)
 
 struct RockScissorsPaperManger {
-    func playRockScissorsPaper() -> GameInfomation {
-        var gameResult: GameInfomation = (.unknown, .execute)
+    func playRockScissorsPaper() -> GameInformation {
+        var gameResult: GameInformation = (.unknown, .execute)
         
         while gameResult == (.unknown, .execute) {
             let handSahpeInformation = inputValidUserValue()
             
             switch handSahpeInformation.gameStatus {
             case .execute:
-                gameResult = gameInfomation(userHandShape: handSahpeInformation.handShape,
+                gameResult = gameInformation(userHandShape: handSahpeInformation.handShape,
                                             computerHandShape: randomComputerHandShape())
             case .exit:
                 gameResult = (.unknown, .exit)
@@ -26,7 +26,7 @@ struct RockScissorsPaperManger {
         return gameResult
     }
     
-    private func gameInfomation(userHandShape: HandShape, computerHandShape: HandShape) -> GameInfomation {
+    private func gameInformation(userHandShape: HandShape, computerHandShape: HandShape) -> GameInformation {
         do {
             let result = try compareHandShape(user: userHandShape, computer: computerHandShape)
             
