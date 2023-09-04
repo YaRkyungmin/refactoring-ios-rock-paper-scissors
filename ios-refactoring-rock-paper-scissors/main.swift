@@ -5,6 +5,6 @@
 //  Created by Kobe, kyungmin on 2023/08/20.
 //
 
-let gameManager = GameManager()
+let gameManager = GameManager(gameLogic: GameLogic())
 
 gameManager.playGame()

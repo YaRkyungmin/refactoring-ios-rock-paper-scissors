@@ -6,16 +6,18 @@
 //
 
 struct MukJjiBbaManager {
+    let gameLogic: HandShapeGameLogic
+    
     func playMukJjiBba(_ gameInformation: GameInformation) -> GameInformation {
         var gameResult = gameInformation
         
         while gameResult.gameStatus == .execute {
-            let handSahpeInformation = GameLogic.receiveValidUserInputValue(ruleMessage: String(format: NameSpace.ruleMessage, gameResult.gameTurn.description))
+            let handSahpeInformation = gameLogic.receiveValidUserInputValue(ruleMessage: String(format: NameSpace.ruleMessage, gameResult.gameTurn.description))
             
             switch handSahpeInformation.gameStatus {
             case .execute:
                 gameResult = applyMukJjiBbaRule(gameTurn: gameResult.gameTurn, userHandShape: handSahpeInformation.handShape,
-                                                computerHandShape: GameLogic.randomComputerHandShape())
+                                                computerHandShape: gameLogic.randomComputerHandShape())
             case .exit:
                 gameResult = (.unknown, .exit)
             }
@@ -26,7 +28,7 @@ struct MukJjiBbaManager {
     
     private func applyMukJjiBbaRule(gameTurn: GameTurn, userHandShape: HandShape, computerHandShape: HandShape) -> GameInformation {
         do {
-            let result = try GameLogic.compareWithRockSicissorsPaperRule(userHandShape, computerHandShape)
+            let result = try gameLogic.compareWithRockSicissorsPaperRule(userHandShape, computerHandShape)
             
             try show(result)
             

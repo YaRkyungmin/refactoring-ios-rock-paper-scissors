@@ -5,8 +5,8 @@
 //  Created by kyungmin on 2023/08/23.
 //
 
-enum GameLogic {
-    static func randomComputerHandShape() -> HandShape {
+struct GameLogic: HandShapeGameLogic {
+    func randomComputerHandShape() -> HandShape {
         let randomIntValue = Int.random(in: 1...3)
         
         switch randomIntValue {
@@ -21,7 +21,7 @@ enum GameLogic {
         }
     }
     
-    static func compareWithRockSicissorsPaperRule(_ lhs: HandShape, _ rhs: HandShape) throws -> GameResult {
+    func compareWithRockSicissorsPaperRule(_ lhs: HandShape, _ rhs: HandShape) throws -> GameResult {
         switch (lhs, rhs) {
         case (.scissors, .scissors), (.rock, .rock), (.paper, .paper):
             return .draw
@@ -34,7 +34,7 @@ enum GameLogic {
         }
     }
     
-    static func receiveValidUserInputValue(ruleMessage: String) -> HandShapeInformation {
+    func receiveValidUserInputValue(ruleMessage: String) -> HandShapeInformation {
         let isWrongInputValue = true
         
         while isWrongInputValue {

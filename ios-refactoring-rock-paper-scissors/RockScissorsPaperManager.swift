@@ -6,16 +6,18 @@
 //
 
 struct RockScissorsPaperManager {
+    let gameLogic: HandShapeGameLogic
+    
     func playRockScissorsPaper(_ gameInformation: GameInformation) -> GameInformation {
         var gameResult = gameInformation
         
         while gameResult == (.unknown, .execute) {
-            let userInformation = GameLogic.receiveValidUserInputValue(ruleMessage: NameSpace.ruleMessage)
+            let userInformation = gameLogic.receiveValidUserInputValue(ruleMessage: NameSpace.ruleMessage)
             
             switch userInformation.gameStatus {
             case .execute:
                 gameResult = applyRockScissorsPaperRule(userHandShape: userInformation.handShape,
-                                                        computerHandShape: GameLogic.randomComputerHandShape())
+                                                        computerHandShape: gameLogic.randomComputerHandShape())
             case .exit:
                 gameResult = (.unknown, .exit)
             }
@@ -26,7 +28,7 @@ struct RockScissorsPaperManager {
     
     private func applyRockScissorsPaperRule(userHandShape: HandShape, computerHandShape: HandShape) -> GameInformation {
         do {
-            let result = try GameLogic.compareWithRockSicissorsPaperRule(userHandShape, computerHandShape)
+            let result = try gameLogic.compareWithRockSicissorsPaperRule(userHandShape, computerHandShape)
             
             try show(result)
             

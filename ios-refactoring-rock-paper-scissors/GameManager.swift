@@ -9,23 +9,25 @@ typealias GameInformation = (gameTurn: GameTurn, gameStatus: GameStatus)
 typealias HandShapeInformation = (handShape: HandShape, gameStatus: GameStatus)
 
 struct GameManager {
+    let gameLogic: HandShapeGameLogic
+    
     func playGame() {
         var gameInformation: GameInformation = (.unknown, .execute)
         
         gameInformation = RockScissorsPaper(gameInformation)
-        gameInformation = MuckJjiBbaManager(gameInformation)
+        gameInformation = MuckJjiBba(gameInformation)
         
         show(gameInformation)
     }
     
     private func RockScissorsPaper(_ gameInformation: GameInformation) -> GameInformation {
-        let rockScissorsPaperManager = RockScissorsPaperManager()
+        let rockScissorsPaperManager = RockScissorsPaperManager(gameLogic: gameLogic)
         
         return rockScissorsPaperManager.playRockScissorsPaper(gameInformation)
     }
     
-    private func MuckJjiBbaManager(_ gameInformation: GameInformation) -> GameInformation {
-        let mukJjiBbaManager = MukJjiBbaManager()
+    private func MuckJjiBba(_ gameInformation: GameInformation) -> GameInformation {
+        let mukJjiBbaManager = MukJjiBbaManager(gameLogic: gameLogic)
         
         return mukJjiBbaManager.playMukJjiBba(gameInformation)
     }
